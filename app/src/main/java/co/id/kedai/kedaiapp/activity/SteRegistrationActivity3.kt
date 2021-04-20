@@ -1,5 +1,6 @@
 package co.id.kedai.kedaiapp.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -140,10 +141,14 @@ class SteRegistrationActivity3 : AppCompatActivity() {
                     if (response.isSuccessful) {
                         Toast.makeText(
                             this@SteRegistrationActivity3,
-                            response.body()?.id_peserta.toString(),
+                            response.body()?.message.toString(),
                             Toast.LENGTH_SHORT
                         ).show()
-                        Log.e("try ", "success -> ${response.body()}")
+
+                        val intent = Intent(this@SteRegistrationActivity3, RegistrationSuccessActivity::class.java)
+                        intent.putExtra("idR", response.body()?.id_peserta)
+                        startActivity(intent)
+
                     } else Log.e("try ", "else -> ${response.message()}")
                 }
 
