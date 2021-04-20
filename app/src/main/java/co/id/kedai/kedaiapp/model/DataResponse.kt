@@ -1,0 +1,21 @@
+package co.id.kedai.kedaiapp.model
+
+data class DataResponse(
+    val data: ArrayList<DataResult>
+)
+
+data class DataResult(
+    val id: Int,            //blog,ebook,event
+    val title: String,      //blog,ebook,event
+    val category: String,   //blog,ebook
+    val author: String,     //blog,ebook,event
+    val thumbnail: String,  //blog,ebook,event
+    val path: String,       //ebook
+    val created_at: String, //blog,ebook,event
+    val content: String,    //blog,event
+    val location: String,   //event
+    val date: String        //event
+)
+
+
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navBeranda"
+        android:icon="@drawable/ic_beranda"
+        android:title="@string/beranda"
+        app:cnb_iconColor="@color/white" />
+    <item
+        android:id="@+id/navEvent"
+        android:icon="@drawable/ic_event"
+        android:title="@string/acara"
+        app:cnb_iconColor="@color/white" />
+    <item
+        android:id="@+id/navEbook"
+        android:icon="@drawable/ic_book"
+        android:title="@string/e_book"
+        app:cnb_iconColor="@color/white" />
+    <item
+        android:id="@+id/navSte"
+        android:icon="@drawable/ic_ste"
+        android:title="@string/ste"
+        app:cnb_iconColor="@color/white" />
+</menu>
