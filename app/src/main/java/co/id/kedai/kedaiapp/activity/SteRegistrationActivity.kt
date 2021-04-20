@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,9 +18,6 @@ class SteRegistrationActivity : AppCompatActivity() {
     private lateinit var datePickerDialog: DatePickerDialog
     private val itemGoldar = listOf("A", "B", "AB", "O", "Tidak tahu")
     private val itemKelamin = listOf("Laki-laki", "Perempuan")
-    private lateinit var simpleDateFormat: SimpleDateFormat
-    private lateinit var awal: SimpleDateFormat
-    private lateinit var date: Date
 
     @SuppressLint("ClickableViewAccessibility", "SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,10 +42,11 @@ class SteRegistrationActivity : AppCompatActivity() {
 
         binding.btnlanjut.setOnClickListener {
 
-            simpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-            awal = SimpleDateFormat("dd MMMM yyyy")
-            date = awal.parse(binding.inputTglLahir.toString())
+            val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+            val awal = SimpleDateFormat("dd MMMM yyyy")
+            val date: Date = awal.parse(binding.inputTglLahir.text.toString())
             val tanggalConversi: String = simpleDateFormat.format(date)
+
             var kelamin: String? = null
 
             if (binding.inputNama.text.toString().isEmpty()
@@ -71,6 +70,7 @@ class SteRegistrationActivity : AppCompatActivity() {
                 binding.inputKelamin.text.toString() == "" -> binding.kelamin.error = " "
                 binding.inputGolDar.text.toString() == "" -> binding.golDar.error = " "
                 else -> {
+
                     val intent = Intent(this, SteRegistrationActivity2::class.java)
                     intent.putExtra("namaLengkap", binding.inputNama.text.toString())
                     intent.putExtra("tempatLahir", binding.inputTempatLahir.text.toString())
