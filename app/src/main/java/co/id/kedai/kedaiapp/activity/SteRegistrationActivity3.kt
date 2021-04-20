@@ -39,7 +39,8 @@ class SteRegistrationActivity3 : AppCompatActivity() {
         "Politeknik Negeri Media Kreatif",
         "STIE Nobel Indonesia",
         "Universitas Islam Negeri Alauddin Makassar",
-        "STIM LPI Makassar"
+        "STIM LPI Makassar",
+        "Kampus lain"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
