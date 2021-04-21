@@ -46,15 +46,16 @@ class SteRegistrationActivity2 : AppCompatActivity() {
                     "Email tidak valid"
                 else -> {
                     val intent = Intent(this, SteRegistrationActivity3::class.java)
-                    intent.putExtra("namaLengkap2", namaLengkap)
-                    intent.putExtra("tempatLahir2", tempatLahir)
-                    intent.putExtra("tanggalLahir2", tanggalLahir)
-                    intent.putExtra("alamat2", alamat)
-                    intent.putExtra("jenisKelamin2", jenisKelamin)
-                    intent.putExtra("golonganDarah2", golonganDarah)
+                    intent.putExtra("namaLengkap", namaLengkap)
+                    intent.putExtra("tempatLahir", tempatLahir)
+                    intent.putExtra("tanggalLahir", tanggalLahir)
+                    intent.putExtra("alamat", alamat)
+                    intent.putExtra("jenisKelamin", jenisKelamin)
+                    intent.putExtra("golonganDarah", golonganDarah)
                     intent.putExtra("noTelepon", binding.inputTelepon.text.toString())
                     intent.putExtra("email", binding.inputEmail.text.toString())
                     startActivity(intent)
+                    finish()
 
                 }
             }

@@ -19,6 +19,8 @@
         android:theme="@style/Theme.KeDaiApp"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup">
+        <activity android:name=".activity.AboutActivity"></activity>
+        <activity android:name=".activity.CheckPaidActivity" />
         <activity android:name=".activity.RegistrationSuccessActivity" />
         <activity android:name=".activity.SteRegistrationActivity3" />
         <activity android:name=".activity.SteRegistrationActivity2" />

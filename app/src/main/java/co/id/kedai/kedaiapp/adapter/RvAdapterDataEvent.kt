@@ -27,10 +27,12 @@ class RvAdapterDataEvent(private val eventList: ArrayList<DataResult>) :
 
                 sb.append(ApiClient.URL)
                 sb.append(dataResult.thumbnail)
+
                 Glide.with(itemView)
                     .load(sb.toString())
-                    .centerCrop()
                     .into(img_event)
+                sb.setLength(0)
+
 
                 cv_event.setOnClickListener {
                     val intent = Intent(itemView.context, WebViewActivity::class.java)
@@ -55,12 +57,9 @@ class RvAdapterDataEvent(private val eventList: ArrayList<DataResult>) :
 
     override fun getItemCount(): Int = eventList.size
 
-    fun addEvent(list: List<DataResult?>) {
-        for (add in list) {
-            add?.let { eventList.add(it) }
-        }
+    fun addEvent(list: ArrayList<DataResult>) {
+        eventList.addAll(list)
         notifyDataSetChanged()
-
     }
 
 

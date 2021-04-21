@@ -52,12 +52,12 @@ class SteRegistrationActivity3 : AppCompatActivity() {
         supportActionBar?.title = "Pendaftaran STE"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val namaLengkap = intent.getStringExtra("namaLengkap2")
-        val tempatLahir = intent.getStringExtra("tempatLahir2")
-        val tanggalLahir = intent.getStringExtra("tanggalLahir2")
-        val alamat = intent.getStringExtra("alamat2")
-        val jenisKelamin = intent.getStringExtra("jenisKelamin2")
-        val golonganDarah = intent.getStringExtra("golonganDarah2")
+        val namaLengkap = intent.getStringExtra("namaLengkap")
+        val tempatLahir = intent.getStringExtra("tempatLahir")
+        val tanggalLahir = intent.getStringExtra("tanggalLahir")
+        val alamat = intent.getStringExtra("alamat")
+        val jenisKelamin = intent.getStringExtra("jenisKelamin")
+        val golonganDarah = intent.getStringExtra("golonganDarah")
         val noTelepon = intent.getStringExtra("noTelepon")
         val email = intent.getStringExtra("email")
 
@@ -127,17 +127,6 @@ class SteRegistrationActivity3 : AppCompatActivity() {
                     response: Response<DaftarResponse>
                 ) {
 
-                    Log.e("daftar ", namaLengkap.toString())
-                    Log.e("daftar ", tempatLahir.toString())
-                    Log.e("daftar ", tanggalLahir.toString())
-                    Log.e("daftar ", jenisKelamin.toString())
-                    Log.e("daftar ", golonganDarah.toString())
-                    Log.e("daftar ", noTelepon.toString())
-                    Log.e("daftar ", email.toString())
-                    Log.e("daftar ", alamat.toString())
-                    Log.e("daftar ", asalKampus)
-                    Log.e("daftar ", alasanSte)
-
                     if (response.isSuccessful) {
                         Toast.makeText(
                             this@SteRegistrationActivity3,
@@ -145,11 +134,15 @@ class SteRegistrationActivity3 : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
 
-                        val intent = Intent(this@SteRegistrationActivity3, RegistrationSuccessActivity::class.java)
+                        val intent = Intent(
+                            this@SteRegistrationActivity3,
+                            RegistrationSuccessActivity::class.java
+                        )
                         intent.putExtra("idR", response.body()?.id_peserta)
                         startActivity(intent)
+                        finish()
 
-                    } else Log.e("try ", "else -> ${response.message()}")
+                    }
                 }
 
                 override fun onFailure(call: Call<DaftarResponse>, t: Throwable) {

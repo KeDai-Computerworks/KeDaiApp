@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -101,11 +100,11 @@ class EventFragment : Fragment() {
                     response: Response<DataResponse>
                 ) {
                     if (response.isSuccessful && response.body()?.data.toString() != "[]") {
-                        response.body()?.let {
-                            adapter.addEvent(it.data)
-                        }
-                    } else dataEvent.clear()
 
+                        adapter.addEvent(response.body()?.data!!)
+                        binding.rvEvent.isVisible = true
+
+                    } else dataEvent.clear()
 
                     binding.swipeRefresh.isRefreshing = false
 
@@ -121,7 +120,7 @@ class EventFragment : Fragment() {
     }
 
     private fun showDataEvent() {
-        ApiClient.instances.getDataEvent(1)
+        ApiClient.instances.getDataEvent(pageNumber)
             .enqueue(object : Callback<DataResponse> {
                 override fun onResponse(
                     call: Call<DataResponse>,
@@ -163,5 +162,15 @@ class EventFragment : Fragment() {
         binding.shimmerEvent.isVisible = false
         binding.tvError.isVisible = true
         binding.imgError.isVisible = true
+    }
+
+    override fun onResume() {
+        dataEvent.clear()
+        binding.shimmerEvent.startShimmer()
+        isLoading = true
+        previousTotal = 0
+        pageNumber = 1
+        dataEvent.clear()
+        super.onResume()
     }
 }

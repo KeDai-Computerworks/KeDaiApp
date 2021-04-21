@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".activity.AboutActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:background="@color/bg">
+
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/kedaiapp"
+            android:textColor="@color/black"
+            android:textSize="46sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvVersiRilis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/versi_rilis"
+            android:textColor="@color/utama"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
+
+        <TextView
+            android:id="@+id/tvCodeVersiRilis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x.xx"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvVersiRilis" />
+
+        <TextView
+            android:id="@+id/tvDiperbaharui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/terakhir_diperbaharui"
+            android:textColor="@color/utama"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCodeVersiRilis" />
+
+        <TextView
+            android:id="@+id/tvTanggalDiperbaharui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mm yyyy"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDiperbaharui" />
+
+        <TextView
+            android:id="@+id/tvKeterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/keterrangan_app"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTanggalDiperbaharui" />
+
+        <TextView
+            android:id="@+id/tvMediaSosial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/media_sosial"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvKeterangan" />
+
+        <ImageView
+            android:id="@+id/icFb"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_facebook"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMediaSosial" />
+
+        <ImageView
+            android:id="@+id/icIg"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_instagram"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icFb" />
+
+        <ImageView
+            android:id="@+id/icTw"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_twitter"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icIg" />
+
+        <ImageView
+            android:id="@+id/icYt"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_youtube"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icTw" />
+
+        <TextView
+            android:id="@+id/tvFb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/kedai_computerworks"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/icFb"
+            app:layout_constraintLeft_toRightOf="@id/icFb"
+            app:layout_constraintTop_toTopOf="@id/icFb" />
+
+        <TextView
+            android:id="@+id/tvIg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/kdcomputerworks"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/icIg"
+            app:layout_constraintLeft_toRightOf="@id/icIg"
+            app:layout_constraintTop_toTopOf="@id/icIg" />
+
+        <TextView
+            android:id="@+id/tvTw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/ketawadamai"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/icTw"
+            app:layout_constraintLeft_toRightOf="@id/icTw"
+            app:layout_constraintTop_toTopOf="@id/icTw" />
+
+        <TextView
+            android:id="@+id/tvYt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/kedai_computerworks"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/icYt"
+            app:layout_constraintLeft_toRightOf="@id/icYt"
+            app:layout_constraintTop_toTopOf="@id/icYt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

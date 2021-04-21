@@ -40,4 +40,10 @@ interface ApiInterface {
         @Field("kampus") kampus: String,
         @Field("alasan") alasan: String
     ): Call<DaftarResponse>
+
+    @FormUrlEncoded
+    @POST("cekpembayaran")
+    fun steDownload(
+        @Field("registration") registration: String,
+    ): Call<DaftarResponse>
 }

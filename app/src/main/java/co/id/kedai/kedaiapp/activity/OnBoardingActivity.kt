@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
@@ -85,9 +86,22 @@ class OnBoardingActivity : AppCompatActivity() {
         }
 
         binding.tvSkip.setOnClickListener {
-            startActivity(intent)
-            dataSave()
-            finish()
+
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Skip")
+            builder.setMessage("Lewati pengenalan ?")
+
+            builder.setPositiveButton("Ya") { _, _ ->
+                startActivity(intent)
+                dataSave()
+                finish()
+            }
+
+            builder.setNegativeButton("Batal") { _, _ ->
+
+            }
+            builder.show()
+
         }
     }
 

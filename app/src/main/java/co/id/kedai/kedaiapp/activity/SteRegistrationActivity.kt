@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -44,8 +43,8 @@ class SteRegistrationActivity : AppCompatActivity() {
 
             val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
             val awal = SimpleDateFormat("dd MMMM yyyy")
-            val date: Date = awal.parse(binding.inputTglLahir.text.toString())
-            val tanggalConversi: String = simpleDateFormat.format(date)
+            val date: Date? = awal.parse(binding.inputTglLahir.text.toString())
+            val tanggalConversi: String = simpleDateFormat.format(date!!)
 
             var kelamin: String? = null
 
@@ -79,6 +78,7 @@ class SteRegistrationActivity : AppCompatActivity() {
                     intent.putExtra("jenisKelamin", kelamin)
                     intent.putExtra("golonganDarah", binding.inputGolDar.text.toString())
                     startActivity(intent)
+                    finish()
 
                 }
             }

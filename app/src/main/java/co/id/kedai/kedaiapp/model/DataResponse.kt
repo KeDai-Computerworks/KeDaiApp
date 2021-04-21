@@ -1,7 +1,8 @@
 package co.id.kedai.kedaiapp.model
 
 data class DataResponse(
-    val data: ArrayList<DataResult>
+    val data: ArrayList<DataResult>,
+    val meta: DataMeta
 )
 
 data class DataResult(
@@ -17,5 +18,14 @@ data class DataResult(
     val date: String        //event
 )
 
+data class DataMeta(
+    val current_page: Int,
+    val from: Int,
+    val last_page: Int,
+    val path: String,
+    val per_page: Int,
+    val to: Int,
+    val total: Int
+)
 
 

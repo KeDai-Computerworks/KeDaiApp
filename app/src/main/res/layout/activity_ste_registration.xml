@@ -47,6 +47,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tglLahir"
         android:layout_width="0dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:hint="@string/tanggal_lahir"
@@ -55,12 +56,12 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nama">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
             android:id="@+id/inputTglLahir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1" />
+            android:inputType="none"
+            tools:ignore="LabelFor" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

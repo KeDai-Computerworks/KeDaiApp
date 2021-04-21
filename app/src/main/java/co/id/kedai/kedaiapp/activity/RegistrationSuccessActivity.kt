@@ -13,9 +13,16 @@ class RegistrationSuccessActivity : AppCompatActivity() {
         binding = ActivityRegistrationSuccessBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        supportActionBar?.title = "Pendaftaran STE"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val idRegistrasi = intent.getStringExtra("idR")
         binding.idR.text = idRegistrasi.toString()
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

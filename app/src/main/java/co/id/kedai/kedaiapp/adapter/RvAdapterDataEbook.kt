@@ -27,10 +27,11 @@ class RvAdapterDataEbook(private val ebookList: ArrayList<DataResult>) :
 
                 sb.append(ApiClient.URL)
                 sb.append(dataResult.thumbnail)
+
                 Glide.with(itemView)
                     .load(sb.toString())
-                    .centerCrop()
                     .into(img_ebook)
+                sb.setLength(0)
 
                 cv_ebook.setOnClickListener {
                     val intent = Intent(itemView.context, PdfReaderActivity::class.java)
@@ -56,11 +57,8 @@ class RvAdapterDataEbook(private val ebookList: ArrayList<DataResult>) :
 
     override fun getItemCount(): Int = ebookList.size
 
-    fun addEbook(list: List<DataResult?>) {
-        for (add in list) {
-            add?.let { ebookList.add(it) }
-            notifyDataSetChanged ()
-
-        }
+    fun addEbook(list: ArrayList<DataResult>) {
+        ebookList.addAll(list)
+        notifyDataSetChanged()
     }
 }

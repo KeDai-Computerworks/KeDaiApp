@@ -71,7 +71,6 @@ class EbookFragment : Fragment() {
                 showDataResponse()
             }
 
-
             binding.rvEbook.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
@@ -84,7 +83,6 @@ class EbookFragment : Fragment() {
                         if (isLoading && totalItemCount > previousTotal) {
                             isLoading = false
                             previousTotal = totalItemCount
-                            Log.e("dataKosong", "$totalItemCount")
                         }
                         if (!isLoading && totalItemCount - visibleItemCount <= pastVisibleItems + viewThreshold
                         ) {
@@ -107,11 +105,12 @@ class EbookFragment : Fragment() {
                         response: Response<DataResponse>
                     ) {
                         if (response.isSuccessful && response.body()?.data.toString() != "[]") {
-                            response.body()?.let {
-                                adapter.addEbook(it.data)
-                            }
-                            binding.swipeRefresh.isRefreshing = false
+
+                            adapter.addEbook(response.body()?.data!!)
+                            binding.rvEbook.isVisible = true
+
                         } else dataEbook.clear()
+
                         binding.swipeRefresh.isRefreshing = false
                     }
 
@@ -125,7 +124,7 @@ class EbookFragment : Fragment() {
 
     private fun showDataResponse() {
         if (activity != null && isAdded) {
-            ApiClient.instances.getDataEbook(1).enqueue(object : Callback<DataResponse> {
+            ApiClient.instances.getDataEbook(pageNumber).enqueue(object : Callback<DataResponse> {
                 override fun onResponse(
                     call: Call<DataResponse>,
                     response: Response<DataResponse>
@@ -141,7 +140,7 @@ class EbookFragment : Fragment() {
                             binding.imgError.isVisible = false
                             binding.tvError.isVisible = false
                         } else {
-                           errorPage()
+                            errorPage()
                         }
                     } else {
                         if (isAdded) {
@@ -165,5 +164,15 @@ class EbookFragment : Fragment() {
         binding.shimmerEbook.isVisible = false
         binding.tvError.isVisible = true
         binding.imgError.isVisible = true
+    }
+
+    override fun onResume() {
+        dataEbook.clear()
+        binding.shimmerEbook.startShimmer()
+        isLoading = true
+        previousTotal = 0
+        pageNumber = 1
+        showDataResponse()
+        super.onResume()
     }
 }

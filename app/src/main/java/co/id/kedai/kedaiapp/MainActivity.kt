@@ -1,8 +1,12 @@
 package co.id.kedai.kedaiapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
+import co.id.kedai.kedaiapp.activity.AboutActivity
 import co.id.kedai.kedaiapp.databinding.ActivityMainBinding
 import co.id.kedai.kedaiapp.fragment.BerandaFragment
 import co.id.kedai.kedaiapp.fragment.EbookFragment
@@ -46,5 +50,19 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         binding = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.about_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.toAbout -> startActivity(Intent(this, AboutActivity::class.java))
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

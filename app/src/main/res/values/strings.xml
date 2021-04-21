@@ -35,4 +35,13 @@
     <string name="perempuan">Perempuan</string>
     <string name="lanjut">Lanjut</string>
     <string name="pendaftaran_sukses">Pendaftaran Sukses</string>
+    <string name="kedaiapp">KeDaiApp</string>
+    <string name="versi_rilis">Versi Rilis</string>
+    <string name="terakhir_diperbaharui">Terakhir Diperbaharui</string>
+    <string name="keterrangan_app">KeDai Computerworks berawal dari salah satu komunitas IT di STMIK Dipanegara Makassar, organisasi ini mulai muncul pada tahun 1998 dan didirikan oleh sekelompok / (16 orang Pelopor) mahasiswa STMIK Dipanegara Makassar yang peduli bahwa wadah seperti inilah yang bisa dijadikan tempat meningkatkan kreatifitas dalam pengembangan Teknologi Informasi.</string>
+    <string name="media_sosial">Media Sosial :</string>
+    <string name="kedai_computerworks">KeDai Computerworks</string>
+    <string name="ketawadamai">ketawadamai</string>
+    <string name="kdcomputerworks">kdcomputerworks</string>
+    <string name="about">About</string>
 </resources>

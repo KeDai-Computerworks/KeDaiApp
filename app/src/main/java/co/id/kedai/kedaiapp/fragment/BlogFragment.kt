@@ -1,7 +1,6 @@
 package co.id.kedai.kedaiapp.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -75,7 +74,6 @@ class BlogFragment(private var category: String) : Fragment() {
                     if (isLoading && totalItemCount > previousTotal) {
                         isLoading = false
                         previousTotal = totalItemCount
-                        Log.e("dataKosong", "$totalItemCount")
                     }
 
                     if (!isLoading && totalItemCount - visibleItemCount <= pastVisibleItems + viewTreshold) {
@@ -96,10 +94,12 @@ class BlogFragment(private var category: String) : Fragment() {
                     response: Response<DataResponse>
                 ) {
                     if (response.isSuccessful && response.body()?.data.toString() != "[]") {
-                        response.body()?.let {
-                            adapter.addBlog(it.data)
-                        }
+
+                        adapter.addBlog(response.body()?.data!!)
+                        binding.rvBlog.isVisible = true
+
                     } else dataBlog.clear()
+
                     binding.swipeRefresh.isRefreshing = false
                 }
 
@@ -156,5 +156,15 @@ class BlogFragment(private var category: String) : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onResume() {
+        dataBlog.clear()
+        binding.shimmerBlog.startShimmer()
+        isLoading = true
+        previousTotal = 0
+        pageNumber = 1
+        dataBlog.clear()
+        super.onResume()
     }
 }

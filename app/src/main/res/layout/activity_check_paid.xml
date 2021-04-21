@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="50dp"
+    tools:context=".activity.CheckPaidActivity">
+
+    <EditText
+        android:id="@+id/etRegis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:hint="no registrasi"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Cek pembayaran"
+        app:layout_constraintTop_toBottomOf="@+id/etRegis" />
+
+    <TextView
+        android:id="@+id/tvRegis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="registrasi"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/btnCek" />
+
+    <Button
+        android:id="@+id/btnDownlaod"
+        android:layout_width="match_parent"
+        android:text="Download"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tvRegis" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
