@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cv_blog"
+    android:id="@+id/cvBlog"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp">
@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/img_container"
+            android:id="@+id/imgContainer"
             android:layout_width="match_parent"
             android:layout_height="175dp"
             android:layout_marginHorizontal="12dp"
@@ -28,13 +28,13 @@
 
                 <ImageView
                     android:contentDescription="@string/todo"
-                    android:id="@+id/img_blog"
+                    android:id="@+id/imgBlog"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop" />
 
                 <com.iambedant.text.OutlineTextView
-                    android:id="@+id/tv_title_blog"
+                    android:id="@+id/tvTitleBlog"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@color/bgImg"
@@ -43,9 +43,9 @@
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_blog"
-                    app:layout_constraintLeft_toLeftOf="@id/img_blog"
-                    app:layout_constraintRight_toRightOf="@id/img_blog"
+                    app:layout_constraintBottom_toBottomOf="@id/imgBlog"
+                    app:layout_constraintLeft_toLeftOf="@id/imgBlog"
+                    app:layout_constraintRight_toRightOf="@id/imgBlog"
                     app:outlineColor="@color/white"
                     app:outlineWidth="0.1"
                     tools:text="Cara Mengembangkan Aplikasi Web Next Generaion" />
@@ -54,14 +54,14 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/tv_date_blog"
+            android:id="@+id/tvDateBlog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="@id/img_container"
-            app:layout_constraintTop_toBottomOf="@+id/img_container"
+            app:layout_constraintLeft_toLeftOf="@id/imgContainer"
+            app:layout_constraintTop_toBottomOf="@+id/imgContainer"
             tools:ignore="SmallSp"
             tools:text="Created at" />
 
@@ -73,11 +73,11 @@
             android:text="@string/line"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/tv_date_blog"
-            app:layout_constraintTop_toBottomOf="@id/img_container" />
+            app:layout_constraintLeft_toRightOf="@id/tvDateBlog"
+            app:layout_constraintTop_toBottomOf="@id/imgContainer" />
 
         <TextView
-            android:id="@+id/tv_category_blog"
+            android:id="@+id/tvCategoryBlog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
@@ -86,7 +86,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/line"
-            app:layout_constraintTop_toBottomOf="@id/img_container"
+            app:layout_constraintTop_toBottomOf="@id/imgContainer"
             tools:ignore="SmallSp"
             tools:text="Category" />
 

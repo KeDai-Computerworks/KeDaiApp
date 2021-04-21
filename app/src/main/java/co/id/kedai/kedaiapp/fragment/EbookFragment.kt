@@ -113,12 +113,12 @@ class EbookFragment : Fragment() {
                 call: Call<DataResponse>,
                 response: Response<DataResponse>
             ) {
-                adapter = RvAdapterDataEbook(response.body()!!.data)
                 if (isAdded) {
                     if (response.isSuccessful) {
+                        adapter = RvAdapterDataEbook(response.body()!!.data)
                         binding.rvEbook.adapter = adapter
                         adapter.notifyDataSetChanged()
-                        binding.rvEbook.isVisible = true
+                        binding.rvEbook.visibility = View.VISIBLE
                         binding.swipeRefresh.isRefreshing = false
                         binding.shimmerEbook.stopShimmer()
                         binding.shimmerEbook.isVisible = false
@@ -142,7 +142,7 @@ class EbookFragment : Fragment() {
 
     fun errorPage() {
         dataEbook.clear()
-        binding.rvEbook.isVisible = false
+        binding.rvEbook.visibility = View.INVISIBLE
         binding.swipeRefresh.isRefreshing = false
         binding.shimmerEbook.stopShimmer()
         binding.shimmerEbook.isVisible = false

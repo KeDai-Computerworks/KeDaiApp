@@ -115,12 +115,12 @@ class EventFragment : Fragment() {
                     call: Call<DataResponse>,
                     response: Response<DataResponse>
                 ) {
-                    adapter = RvAdapterDataEvent(response.body()!!.data)
                     if (isAdded) {
                         if (response.isSuccessful) {
+                            adapter = RvAdapterDataEvent(response.body()!!.data)
                             binding.rvEvent.adapter = adapter
                             adapter.notifyDataSetChanged()
-                            binding.rvEvent.isVisible = true
+                            binding.rvEvent.visibility = View.VISIBLE
                             binding.swipeRefresh.isRefreshing = false
                             binding.shimmerEvent.stopShimmer()
                             binding.shimmerEvent.isVisible = false
@@ -144,7 +144,7 @@ class EventFragment : Fragment() {
 
     private fun errorPage() {
         dataEvent.clear()
-        binding.rvEvent.isVisible = false
+        binding.rvEvent.visibility = View.INVISIBLE
         binding.swipeRefresh.isRefreshing = false
         binding.shimmerEvent.stopShimmer()
         binding.shimmerEvent.isVisible = false

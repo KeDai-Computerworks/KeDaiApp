@@ -113,12 +113,12 @@ class BlogFragment(private var category: String) : Fragment() {
                     call: Call<DataResponse>,
                     response: Response<DataResponse>
                 ) {
-                    adapter = RvAdapterDataBlog(response.body()!!.data)
                     if (isAdded) {
                         if (response.isSuccessful) {
+                            adapter = RvAdapterDataBlog(response.body()!!.data)
                             binding.rvBlog.adapter = adapter
                             adapter.notifyDataSetChanged()
-                            binding.rvBlog.isVisible = true
+                            binding.rvBlog.visibility = View.VISIBLE
                             binding.swipeRefresh.isRefreshing = false
                             binding.shimmerBlog.stopShimmer()
                             binding.shimmerBlog.isVisible = false
@@ -142,7 +142,7 @@ class BlogFragment(private var category: String) : Fragment() {
 
     fun errorPage() {
         dataBlog.clear()
-        binding.rvBlog.isVisible = false
+        binding.rvBlog.visibility = View.INVISIBLE
         binding.swipeRefresh.isRefreshing = false
         binding.shimmerBlog.stopShimmer()
         binding.shimmerBlog.isVisible = false
