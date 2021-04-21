@@ -41,12 +41,10 @@ class BlogFragment(private var category: String) : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentBlogBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         layoutManager = LinearLayoutManager(activity?.applicationContext)
         binding.rvBlog.layoutManager = layoutManager
         binding.shimmerBlog.startShimmer()
@@ -64,7 +62,6 @@ class BlogFragment(private var category: String) : Fragment() {
         binding.rvBlog.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-
                 visibleItemCount = layoutManager.childCount
                 totalItemCount = layoutManager.itemCount
                 pastVisibleItems = layoutManager.findFirstCompletelyVisibleItemPosition()
@@ -96,7 +93,6 @@ class BlogFragment(private var category: String) : Fragment() {
                     if (response.isSuccessful && response.body()?.data.toString() != "[]") {
 
                         adapter.addBlog(response.body()?.data!!)
-                        binding.rvBlog.isVisible = true
 
                     } else dataBlog.clear()
 
@@ -111,7 +107,7 @@ class BlogFragment(private var category: String) : Fragment() {
     }
 
     private fun showDataBlog() {
-        ApiClient.instances.getDataAllBlog(category, 1)
+        ApiClient.instances.getDataAllBlog(category, pageNumber)
             .enqueue(object : Callback<DataResponse> {
                 override fun onResponse(
                     call: Call<DataResponse>,
@@ -121,6 +117,7 @@ class BlogFragment(private var category: String) : Fragment() {
                     if (isAdded) {
                         if (response.isSuccessful) {
                             binding.rvBlog.adapter = adapter
+                            adapter.notifyDataSetChanged()
                             binding.rvBlog.isVisible = true
                             binding.swipeRefresh.isRefreshing = false
                             binding.shimmerBlog.stopShimmer()
@@ -159,12 +156,11 @@ class BlogFragment(private var category: String) : Fragment() {
     }
 
     override fun onResume() {
-        dataBlog.clear()
-        binding.shimmerBlog.startShimmer()
+        super.onResume()
         isLoading = true
         previousTotal = 0
         pageNumber = 1
         dataBlog.clear()
-        super.onResume()
+        showDataBlog()
     }
 }

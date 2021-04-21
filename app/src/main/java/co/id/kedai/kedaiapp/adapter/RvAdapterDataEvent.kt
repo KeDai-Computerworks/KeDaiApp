@@ -33,7 +33,6 @@ class RvAdapterDataEvent(private val eventList: ArrayList<DataResult>) :
                     .into(img_event)
                 sb.setLength(0)
 
-
                 cv_event.setOnClickListener {
                     val intent = Intent(itemView.context, WebViewActivity::class.java)
                     intent.putExtra("category", "events/")

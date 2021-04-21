@@ -1,7 +1,6 @@
 package co.id.kedai.kedaiapp.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,11 +39,8 @@ class EbookFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        if (activity != null && isAdded) {
-            // Inflate the layout for this fragment
-            _binding = FragmentEbookBinding.inflate(inflater, container, false)
-            return binding.root
-        }
+        // Inflate the layout for this fragment
+        _binding = FragmentEbookBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -55,105 +51,93 @@ class EbookFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (activity != null && isAdded) {
+        layoutManager = LinearLayoutManager(activity?.applicationContext)
+        binding.rvEbook.layoutManager = layoutManager
+        binding.shimmerEbook.startShimmer()
 
-            layoutManager = LinearLayoutManager(activity?.applicationContext)
-            binding.rvEbook.layoutManager = layoutManager
-            binding.shimmerEbook.startShimmer()
+        showDataResponse()
 
+        binding.swipeRefresh.setOnRefreshListener {
+            isLoading = true
+            previousTotal = 0
+            pageNumber = 1
+            dataEbook.clear()
             showDataResponse()
+        }
 
-            binding.swipeRefresh.setOnRefreshListener {
-                isLoading = true
-                previousTotal = 0
-                pageNumber = 1
-                dataEbook.clear()
-                showDataResponse()
-            }
-
-            binding.rvEbook.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    super.onScrolled(recyclerView, dx, dy)
-
-                    visibleItemCount = layoutManager.childCount
-                    totalItemCount = layoutManager.itemCount
-                    pastVisibleItems = layoutManager.findFirstCompletelyVisibleItemPosition()
-
-                    if (dy > 0) {
-                        if (isLoading && totalItemCount > previousTotal) {
-                            isLoading = false
-                            previousTotal = totalItemCount
-                        }
-                        if (!isLoading && totalItemCount - visibleItemCount <= pastVisibleItems + viewThreshold
-                        ) {
-                            pageNumber += 1
-                            loadPage(pageNumber)
-                            isLoading = true
-                        }
+        binding.rvEbook.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                visibleItemCount = layoutManager.childCount
+                totalItemCount = layoutManager.itemCount
+                pastVisibleItems = layoutManager.findFirstCompletelyVisibleItemPosition()
+                if (dy > 0) {
+                    if (isLoading && totalItemCount > previousTotal) {
+                        isLoading = false
+                        previousTotal = totalItemCount
+                    }
+                    if (!isLoading && totalItemCount - visibleItemCount <= pastVisibleItems + viewThreshold
+                    ) {
+                        pageNumber += 1
+                        loadPage(pageNumber)
+                        isLoading = true
                     }
                 }
-            })
-        }
+            }
+        })
     }
 
     private fun loadPage(pageNumber: Int) {
-        if (activity != null && isAdded) {
-            ApiClient.instances.getDataEbook(pageNumber)
-                .enqueue(object : Callback<DataResponse> {
-                    override fun onResponse(
-                        call: Call<DataResponse>,
-                        response: Response<DataResponse>
-                    ) {
-                        if (response.isSuccessful && response.body()?.data.toString() != "[]") {
-
-                            adapter.addEbook(response.body()?.data!!)
-                            binding.rvEbook.isVisible = true
-
-                        } else dataEbook.clear()
-
-                        binding.swipeRefresh.isRefreshing = false
-                    }
-
-                    override fun onFailure(call: Call<DataResponse>, t: Throwable) {
-                        dataEbook.clear()
-                        binding.swipeRefresh.isRefreshing = false
-                    }
-                })
-        }
-    }
-
-    private fun showDataResponse() {
-        if (activity != null && isAdded) {
-            ApiClient.instances.getDataEbook(pageNumber).enqueue(object : Callback<DataResponse> {
+        ApiClient.instances.getDataEbook(pageNumber)
+            .enqueue(object : Callback<DataResponse> {
                 override fun onResponse(
                     call: Call<DataResponse>,
                     response: Response<DataResponse>
                 ) {
-                    adapter = RvAdapterDataEbook(response.body()!!.data)
-                    if (isAdded) {
-                        if (response.isSuccessful) {
-                            binding.rvEbook.adapter = adapter
-                            binding.rvEbook.isVisible = true
-                            binding.swipeRefresh.isRefreshing = false
-                            binding.shimmerEbook.stopShimmer()
-                            binding.shimmerEbook.isVisible = false
-                            binding.imgError.isVisible = false
-                            binding.tvError.isVisible = false
-                        } else {
-                            errorPage()
-                        }
-                    } else {
-                        if (isAdded) {
-                            errorPage()
-                        }
-                    }
+                    if (response.isSuccessful && response.body()?.data.toString() != "[]") {
+                        adapter.addEbook(response.body()?.data!!)
+                    } else dataEbook.clear()
+                    binding.swipeRefresh.isRefreshing = false
                 }
 
                 override fun onFailure(call: Call<DataResponse>, t: Throwable) {
-                    errorPage()
+                    dataEbook.clear()
+                    binding.swipeRefresh.isRefreshing = false
                 }
             })
-        }
+    }
+
+    private fun showDataResponse() {
+        ApiClient.instances.getDataEbook(pageNumber).enqueue(object : Callback<DataResponse> {
+            override fun onResponse(
+                call: Call<DataResponse>,
+                response: Response<DataResponse>
+            ) {
+                adapter = RvAdapterDataEbook(response.body()!!.data)
+                if (isAdded) {
+                    if (response.isSuccessful) {
+                        binding.rvEbook.adapter = adapter
+                        adapter.notifyDataSetChanged()
+                        binding.rvEbook.isVisible = true
+                        binding.swipeRefresh.isRefreshing = false
+                        binding.shimmerEbook.stopShimmer()
+                        binding.shimmerEbook.isVisible = false
+                        binding.imgError.isVisible = false
+                        binding.tvError.isVisible = false
+                    } else {
+                        errorPage()
+                    }
+                } else {
+                    if (isAdded) {
+                        errorPage()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<DataResponse>, t: Throwable) {
+                errorPage()
+            }
+        })
     }
 
     fun errorPage() {
@@ -167,12 +151,11 @@ class EbookFragment : Fragment() {
     }
 
     override fun onResume() {
-        dataEbook.clear()
-        binding.shimmerEbook.startShimmer()
+        super.onResume()
         isLoading = true
         previousTotal = 0
         pageNumber = 1
+        dataEbook.clear()
         showDataResponse()
-        super.onResume()
     }
 }

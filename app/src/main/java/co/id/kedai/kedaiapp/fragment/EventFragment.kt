@@ -51,7 +51,6 @@ class EventFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         layoutManager = LinearLayoutManager(activity?.applicationContext)
         binding.rvEvent.layoutManager = layoutManager
         binding.shimmerEvent.startShimmer()
@@ -69,18 +68,15 @@ class EventFragment : Fragment() {
         binding.rvEvent.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-
                 visibleItemCount = layoutManager.childCount
                 totalItemCount = layoutManager.itemCount
                 pastVisibleItems = layoutManager.findFirstCompletelyVisibleItemPosition()
 
                 if (dy > 0) {
-
                     if (isLoading && totalItemCount > previousTotal) {
                         isLoading = false
                         previousTotal = totalItemCount
                     }
-
                     if (!isLoading && totalItemCount - visibleItemCount <= pastVisibleItems + viewThreshold
                     ) {
                         pageNumber += 1
@@ -100,23 +96,16 @@ class EventFragment : Fragment() {
                     response: Response<DataResponse>
                 ) {
                     if (response.isSuccessful && response.body()?.data.toString() != "[]") {
-
                         adapter.addEvent(response.body()?.data!!)
-                        binding.rvEvent.isVisible = true
-
                     } else dataEvent.clear()
-
                     binding.swipeRefresh.isRefreshing = false
-
                 }
 
                 override fun onFailure(call: Call<DataResponse>, t: Throwable) {
                     dataEvent.clear()
                     binding.swipeRefresh.isRefreshing = false
                 }
-
             })
-
     }
 
     private fun showDataEvent() {
@@ -127,17 +116,16 @@ class EventFragment : Fragment() {
                     response: Response<DataResponse>
                 ) {
                     adapter = RvAdapterDataEvent(response.body()!!.data)
-
                     if (isAdded) {
                         if (response.isSuccessful) {
                             binding.rvEvent.adapter = adapter
+                            adapter.notifyDataSetChanged()
                             binding.rvEvent.isVisible = true
                             binding.swipeRefresh.isRefreshing = false
                             binding.shimmerEvent.stopShimmer()
                             binding.shimmerEvent.isVisible = false
                             binding.imgError.isVisible = false
                             binding.tvError.isVisible = false
-
                         } else {
                             errorPage()
                         }
@@ -154,7 +142,7 @@ class EventFragment : Fragment() {
             })
     }
 
-    fun errorPage() {
+    private fun errorPage() {
         dataEvent.clear()
         binding.rvEvent.isVisible = false
         binding.swipeRefresh.isRefreshing = false
@@ -165,12 +153,11 @@ class EventFragment : Fragment() {
     }
 
     override fun onResume() {
-        dataEvent.clear()
-        binding.shimmerEvent.startShimmer()
+        super.onResume()
         isLoading = true
         previousTotal = 0
         pageNumber = 1
         dataEvent.clear()
-        super.onResume()
+        showDataEvent()
     }
 }
