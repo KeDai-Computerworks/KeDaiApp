@@ -2,7 +2,6 @@ package co.id.kedai.kedaiapp.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -67,7 +66,6 @@ class SteRegistrationActivity3 : AppCompatActivity() {
         binding.inputKampus.setAdapter(adapterkampus)
 
         binding.btnDaftar.setOnClickListener {
-
             if (binding.inputKampus.text.toString().isEmpty()
                 || binding.inputAlasan.text.toString().isEmpty()
             ) Toast.makeText(this, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show()
@@ -110,49 +108,58 @@ class SteRegistrationActivity3 : AppCompatActivity() {
         asalKampus: String,
         alasanSte: String
     ) {
-        try {
-            ApiClient.instancesSte.steRegistration(
-                namaLengkap.toString(),
-                tempatLahir.toString(),
-                tanggalLahir.toString(),
-                jenisKelamin.toString(),
-                golonganDarah.toString(),
-                noTelepon.toString(),
-                email.toString(),
-                alamat.toString(),
-                asalKampus,
-                alasanSte
-            ).enqueue(object : Callback<DaftarResponse> {
-                override fun onResponse(
-                    call: Call<DaftarResponse>,
-                    response: Response<DaftarResponse>
-                ) {
+        binding.btnDaftar.startAnimation()
+        ApiClient.instancesSte.steRegistration(
+            namaLengkap.toString(),
+            tempatLahir.toString(),
+            tanggalLahir.toString(),
+            jenisKelamin.toString(),
+            golonganDarah.toString(),
+            noTelepon.toString(),
+            email.toString(),
+            alamat.toString(),
+            asalKampus,
+            alasanSte
+        ).enqueue(object : Callback<DaftarResponse> {
+            override fun onResponse(
+                call: Call<DaftarResponse>,
+                response: Response<DaftarResponse>
+            ) {
+                if (response.isSuccessful) {
+                    Toast.makeText(
+                        this@SteRegistrationActivity3,
+                        response.body()?.message.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
 
-                    if (response.isSuccessful) {
-                        Toast.makeText(
-                            this@SteRegistrationActivity3,
-                            response.body()?.message.toString(),
-                            Toast.LENGTH_SHORT
-                        ).show()
+                    val intent = Intent(
+                        this@SteRegistrationActivity3,
+                        RegistrationSuccessActivity::class.java
+                    )
+                    binding.btnDaftar.revertAnimation()
 
-                        val intent = Intent(
-                            this@SteRegistrationActivity3,
-                            RegistrationSuccessActivity::class.java
-                        )
-                        intent.putExtra("idR", response.body()?.id_peserta)
-                        startActivity(intent)
-                        finish()
-
-                    }
+                    intent.putExtra("idR", response.body()?.id_peserta)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    binding.btnDaftar.revertAnimation()
+                    Toast.makeText(
+                        this@SteRegistrationActivity3,
+                        "Gagal Mendaftar",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
+            }
 
-                override fun onFailure(call: Call<DaftarResponse>, t: Throwable) {
-                    Log.e("try ", "onfailure[tion -> $t")
-                }
-            })
-        } catch (e: Exception) {
-            Log.e("try ", "exception -> $e")
-        }
+            override fun onFailure(call: Call<DaftarResponse>, t: Throwable) {
+                binding.btnDaftar.revertAnimation()
+                Toast.makeText(
+                    this@SteRegistrationActivity3,
+                    "Gagal Mendaftar",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
     }
 
     override fun onSupportNavigateUp(): Boolean {
