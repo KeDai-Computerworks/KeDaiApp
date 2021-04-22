@@ -10,11 +10,11 @@ import co.id.kedai.kedaiapp.databinding.ItemBlogBinding
 import co.id.kedai.kedaiapp.model.DataResult
 import com.bumptech.glide.Glide
 
+
 class RvAdapterDataBlog(private val blogList: ArrayList<DataResult>) :
     RecyclerView.Adapter<RvAdapterDataBlog.BlogViewHolder>() {
 
-    inner class BlogViewHolder(val binding: ItemBlogBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class BlogViewHolder(val binding: ItemBlogBinding) : RecyclerView.ViewHolder(binding.root) {
         private val sb: StringBuilder = StringBuilder()
 
         fun bind(dataResult: DataResult) {

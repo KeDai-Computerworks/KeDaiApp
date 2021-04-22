@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 class RvAdapterDataEvent(private val eventList: ArrayList<DataResult>) :
     RecyclerView.Adapter<RvAdapterDataEvent.EventViewHolder>() {
 
-    inner class EventViewHolder(val binding: ItemEventBinding) : RecyclerView.ViewHolder(binding.root) {
+    class EventViewHolder(val binding: ItemEventBinding) : RecyclerView.ViewHolder(binding.root) {
         private val sb: StringBuilder = StringBuilder()
 
         fun bind(dataResult: DataResult) {

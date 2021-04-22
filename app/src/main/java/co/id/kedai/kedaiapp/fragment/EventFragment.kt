@@ -120,7 +120,7 @@ class EventFragment : Fragment() {
                             adapter = RvAdapterDataEvent(response.body()!!.data)
                             binding.rvEvent.adapter = adapter
                             adapter.notifyDataSetChanged()
-                            binding.rvEvent.visibility = View.VISIBLE
+                            binding.rvEvent.isVisible = true
                             binding.swipeRefresh.isRefreshing = false
                             binding.shimmerEvent.stopShimmer()
                             binding.shimmerEvent.isVisible = false
@@ -144,7 +144,7 @@ class EventFragment : Fragment() {
 
     private fun errorPage() {
         dataEvent.clear()
-        binding.rvEvent.visibility = View.INVISIBLE
+        binding.rvEvent.isVisible = false
         binding.swipeRefresh.isRefreshing = false
         binding.shimmerEvent.stopShimmer()
         binding.shimmerEvent.isVisible = false

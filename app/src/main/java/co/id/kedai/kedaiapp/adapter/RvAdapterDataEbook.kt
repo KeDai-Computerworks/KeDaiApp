@@ -13,30 +13,30 @@ import com.bumptech.glide.Glide
 class RvAdapterDataEbook(private val ebookList: ArrayList<DataResult>) :
     RecyclerView.Adapter<RvAdapterDataEbook.EbookViewHolder>() {
 
-    inner class EbookViewHolder(val binding: ItemEbookBinding) : RecyclerView.ViewHolder(binding.root) {
+    class EbookViewHolder(val binding: ItemEbookBinding) : RecyclerView.ViewHolder(binding.root) {
         private val sb: StringBuilder = StringBuilder()
 
         fun bind(dataResult: DataResult) {
-                binding.tvTitleEbook.text = dataResult.title
-                binding.tvAuthorEbook.text = dataResult.author
-                binding.tvCategoryEbook.text = dataResult.category
-                binding.tvDateEbook.text = dataResult.created_at
+            binding.tvTitleEbook.text = dataResult.title
+            binding.tvAuthorEbook.text = dataResult.author
+            binding.tvCategoryEbook.text = dataResult.category
+            binding.tvDateEbook.text = dataResult.created_at
 
-                sb.append(ApiClient.URL)
-                sb.append(dataResult.thumbnail)
+            sb.append(ApiClient.URL)
+            sb.append(dataResult.thumbnail)
 
-                Glide.with(itemView)
-                    .load(sb.toString())
-                    .into(binding.imgEbook)
-                sb.setLength(0)
+            Glide.with(itemView)
+                .load(sb.toString())
+                .into(binding.imgEbook)
+            sb.setLength(0)
 
-                binding.cvEbook.setOnClickListener {
-                    val intent = Intent(itemView.context, PdfReaderActivity::class.java)
-                    intent.putExtra("path", dataResult.path)
-                    itemView.context.startActivity(intent)
+            binding.cvEbook.setOnClickListener {
+                val intent = Intent(itemView.context, PdfReaderActivity::class.java)
+                intent.putExtra("path", dataResult.path)
+                itemView.context.startActivity(intent)
 
-                }
             }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EbookViewHolder {

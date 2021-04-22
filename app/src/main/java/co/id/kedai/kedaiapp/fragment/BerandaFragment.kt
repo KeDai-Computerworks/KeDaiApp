@@ -39,7 +39,6 @@ class BerandaFragment : Fragment() {
                 5 -> tab.text = "HARDWARE"
             }
         }.attach()
-
     }
 
     override fun onDestroy() {

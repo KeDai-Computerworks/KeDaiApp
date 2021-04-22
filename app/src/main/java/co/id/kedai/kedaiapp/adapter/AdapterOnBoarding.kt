@@ -9,12 +9,13 @@ import co.id.kedai.kedaiapp.model.DataOnBoarding
 class AdapterOnBoarding(private val dataOnBoarding: List<DataOnBoarding>) :
     RecyclerView.Adapter<AdapterOnBoarding.SliderHolder>() {
 
-    inner class SliderHolder(val binding: ContainerOnBoardingBinding) : RecyclerView.ViewHolder(binding.root) {
+    class SliderHolder(val binding: ContainerOnBoardingBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(dataOnBoarding: DataOnBoarding) {
-                binding.tvTitle.text = dataOnBoarding.judul
-                binding.tvDeskripsi.text = dataOnBoarding.deskripsi
-                binding.imgGambar.setImageResource(dataOnBoarding.gambar)
+            binding.tvTitle.text = dataOnBoarding.judul
+            binding.tvDeskripsi.text = dataOnBoarding.deskripsi
+            binding.imgGambar.setImageResource(dataOnBoarding.gambar)
         }
     }
 

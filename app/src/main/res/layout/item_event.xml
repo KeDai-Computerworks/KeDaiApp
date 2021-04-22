@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cvEvent"
+    android:id="@+id/cv_event"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp">
@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/imgEvent"
+            android:id="@+id/img_event"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginHorizontal="12dp"
@@ -22,31 +22,31 @@
             app:riv_corner_radius="10dp" />
 
         <TextView
-            android:id="@+id/tvTitleEvent"
+            android:id="@+id/tv_title_event"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="@id/imgEvent"
-            app:layout_constraintTop_toBottomOf="@id/imgEvent"
+            app:layout_constraintLeft_toLeftOf="@id/img_event"
+            app:layout_constraintTop_toBottomOf="@id/img_event"
             tools:text="Search To Extrach XVII" />
 
         <TextView
-            android:id="@+id/tvAuthorEvent"
+            android:id="@+id/tv_author_event"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:layout_marginTop="4dp"
             android:textColor="@color/utama"
             android:textSize="12sp"
-            app:layout_constraintLeft_toLeftOf="@id/tvTitleEvent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitleEvent"
+            app:layout_constraintLeft_toLeftOf="@id/tv_title_event"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_event"
             tools:text="KeDai Computerworks" />
 
         <TextView
-            android:id="@+id/lineEvent"
+            android:id="@+id/line_event"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:layout_marginTop="15dp"
@@ -56,78 +56,78 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAuthorEvent" />
+            app:layout_constraintTop_toBottomOf="@id/tv_author_event" />
 
         <ImageView
-            android:id="@+id/imgIcDate"
+            android:id="@+id/img_ic_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:contentDescription="@string/todo"
             android:src="@drawable/ic_event"
-            app:layout_constraintBottom_toBottomOf="@+id/lineEvent"
-            app:layout_constraintRight_toLeftOf="@id/lineEvent"
-            app:layout_constraintTop_toTopOf="@id/lineEvent" />
+            app:layout_constraintBottom_toBottomOf="@+id/line_event"
+            app:layout_constraintRight_toLeftOf="@id/tv_date_event"
+            app:layout_constraintTop_toTopOf="@id/line_event" />
 
         <TextView
-            android:id="@+id/tvInfoDate"
+            android:id="@+id/tv_info_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tanggal_event"
             android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvDateEvent"
-            app:layout_constraintLeft_toLeftOf="@id/tvDateEvent"
-            app:layout_constraintTop_toTopOf="@+id/lineEvent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_date_event"
+            app:layout_constraintLeft_toLeftOf="@id/tv_date_event"
+            app:layout_constraintTop_toTopOf="@+id/line_event"
             tools:ignore="SmallSp" />
 
         <TextView
-            android:id="@+id/tvDateEvent"
+            android:id="@+id/tv_date_event"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="18dp"
             android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="@+id/lineEvent"
-            app:layout_constraintRight_toLeftOf="@+id/lineEvent"
-            app:layout_constraintTop_toBottomOf="@id/tvInfoDate"
+            app:layout_constraintBottom_toBottomOf="@+id/line_event"
+            app:layout_constraintRight_toLeftOf="@+id/line_event"
+            app:layout_constraintTop_toBottomOf="@id/tv_info_date"
             tools:ignore="SmallSp"
             tools:text="01 Januari 2000" />
 
         <ImageView
-            android:id="@+id/imgIcLocation"
+            android:id="@+id/img_ic_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:contentDescription="@string/todo"
             android:src="@drawable/ic_location"
-            app:layout_constraintBottom_toBottomOf="@+id/imgIcDate"
-            app:layout_constraintLeft_toRightOf="@+id/lineEvent"
-            app:layout_constraintTop_toTopOf="@+id/imgIcDate" />
+            app:layout_constraintBottom_toBottomOf="@+id/img_ic_date"
+            app:layout_constraintLeft_toRightOf="@+id/line_event"
+            app:layout_constraintTop_toTopOf="@+id/img_ic_date" />
 
         <TextView
-            android:id="@+id/tvInfoLocation"
+            android:id="@+id/tv_info_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="@string/lokasi_event"
             android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvLocationEvent"
-            app:layout_constraintLeft_toRightOf="@+id/imgIcLocation"
-            app:layout_constraintTop_toTopOf="@id/lineEvent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_location_event"
+            app:layout_constraintLeft_toRightOf="@+id/img_ic_location"
+            app:layout_constraintTop_toTopOf="@id/line_event"
             tools:ignore="SmallSp" />
 
         <TextView
-            android:id="@+id/tvLocationEvent"
+            android:id="@+id/tv_location_event"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="14dp"
             android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="@+id/lineEvent"
-            app:layout_constraintLeft_toLeftOf="@+id/tvInfoLocation"
-            app:layout_constraintLeft_toRightOf="@+id/imgIcLocation"
+            app:layout_constraintBottom_toBottomOf="@+id/line_event"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_info_location"
+            app:layout_constraintLeft_toRightOf="@+id/img_ic_location"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvInfoLocation"
+            app:layout_constraintTop_toBottomOf="@+id/tv_info_location"
             tools:ignore="SmallSp"
             tools:text="01 Januari 2000" />
 
