@@ -24,31 +24,32 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
         android:id="@+id/btnCek"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:background="@drawable/round_button"
         android:text="@string/cek_pembayaran"
-        app:layout_constraintTop_toBottomOf="@+id/registrasi" />
+        android:textColor="@color/white"
+        app:initialCornerAngle="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/registrasi"
+        app:spinning_bar_color="#FFF"
+        app:spinning_bar_padding="6dp"
+        app:spinning_bar_width="4dp" />
 
-    <TextView
-        android:id="@+id/tvRegis"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/btnCek"
-        tools:text="registrasi" />
-
-    <Button
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
         android:id="@+id/btnDownlaod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@drawable/round_button"
         android:text="@string/download_no_registrasi"
+        android:textColor="@color/white"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/tvRegis" />
+        app:initialCornerAngle="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnCek"
+        app:spinning_bar_color="#FFF"
+        app:spinning_bar_padding="6dp"
+        app:spinning_bar_width="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

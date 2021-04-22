@@ -14,6 +14,10 @@ import androidx.core.view.isVisible
 import co.id.kedai.kedaiapp.api.ApiClient
 import co.id.kedai.kedaiapp.databinding.ActivityCheckPaidBinding
 import co.id.kedai.kedaiapp.model.DaftarResponse
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,6 +48,7 @@ class CheckPaidActivity : AppCompatActivity() {
 
         binding.btnCek.setOnClickListener {
             val regis = binding.inputNoRegistrasi.text.toString()
+            binding.btnCek.startAnimation()
             cekPaid(regis)
         }
     }
@@ -56,19 +61,21 @@ class CheckPaidActivity : AppCompatActivity() {
                     response: Response<DaftarResponse>
                 ) {
                     if (response.body()?.pdf != null) {
-                        binding.tvRegis.text = response.body()?.pdf
-                        binding.tvRegis.isVisible = true
-                        binding.btnDownlaod.isVisible = true
-
                         val linkPdf = response.body()?.pdf.toString()
+
+                        binding.btnCek.revertAnimation()
+
+                        binding.btnDownlaod.isVisible = true
                         binding.btnDownlaod.setOnClickListener {
+                            binding.btnDownlaod.startAnimation()
                             downloadPdf(linkPdf)
-
+                            GlobalScope.launch(context = Dispatchers.Main) {
+                                delay(2000)
+                                binding.btnDownlaod.revertAnimation()
+                            }
                         }
-
                     } else {
-                        binding.tvRegis.isVisible = false
-                        binding.btnDownlaod.isVisible = false
+                        binding.btnCek.revertAnimation()
                         Toast.makeText(
                             this@CheckPaidActivity,
                             response.body()?.message,
@@ -78,7 +85,7 @@ class CheckPaidActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<DaftarResponse>, t: Throwable) {
-                    binding.tvRegis.isVisible = false
+                    binding.btnCek.revertAnimation()
                     binding.btnDownlaod.isVisible = false
                     Toast.makeText(
                         this@CheckPaidActivity,
@@ -101,7 +108,7 @@ class CheckPaidActivity : AppCompatActivity() {
             myFile
         )
         downloadManager.enqueue(request)
-        Toast.makeText(this, "Mengunduh...\nPeriksa file unduhan anda", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Periksa file unduhan anda", Toast.LENGTH_SHORT).show()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -115,7 +122,6 @@ class CheckPaidActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
         if (requestCode == 100) {
             if (grantResults.isNotEmpty() && grantResults[0] != PackageManager.PERMISSION_GRANTED)
                 Toast.makeText(this, "Permisi ditolak", Toast.LENGTH_SHORT).show()
