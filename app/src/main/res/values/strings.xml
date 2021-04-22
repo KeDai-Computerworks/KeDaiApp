@@ -44,4 +44,9 @@
     <string name="ketawadamai">ketawadamai</string>
     <string name="kdcomputerworks">kdcomputerworks</string>
     <string name="about">About</string>
+    <string name="daftar_sekarang">Daftar Sekarang</string>
+    <string name="jadwal_kegiatan">Jadwal Kegiatan</string>
+    <string name="cek_pembayaran">Cek Pembayaran</string>
+    <string name="download_no_registrasi">Download No. Registrasi</string>
+    <string name="nomor_registrasi">Nomor Registrasi</string>
 </resources>

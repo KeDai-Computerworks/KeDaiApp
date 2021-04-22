@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -44,7 +43,7 @@ class CheckPaidActivity : AppCompatActivity() {
         }
 
         binding.btnCek.setOnClickListener {
-            val regis = binding.etRegis.text.toString()
+            val regis = binding.inputNoRegistrasi.text.toString()
             cekPaid(regis)
         }
     }
@@ -56,8 +55,6 @@ class CheckPaidActivity : AppCompatActivity() {
                     call: Call<DaftarResponse>,
                     response: Response<DaftarResponse>
                 ) {
-                    Log.e("cek ", response.body()?.pdf.toString())
-
                     if (response.body()?.pdf != null) {
                         binding.tvRegis.text = response.body()?.pdf
                         binding.tvRegis.isVisible = true
@@ -83,7 +80,6 @@ class CheckPaidActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<DaftarResponse>, t: Throwable) {
                     binding.tvRegis.isVisible = false
                     binding.btnDownlaod.isVisible = false
-
                     Toast.makeText(
                         this@CheckPaidActivity,
                         t.message,

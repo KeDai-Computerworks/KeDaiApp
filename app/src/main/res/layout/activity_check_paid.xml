@@ -7,36 +7,47 @@
     android:paddingHorizontal="50dp"
     tools:context=".activity.CheckPaidActivity">
 
-    <EditText
-        android:id="@+id/etRegis"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registrasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:hint="no registrasi"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="42dp"
+        android:hint="@string/nomor_registrasi"
+        app:errorEnabled="true"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputNoRegistrasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnCek"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Cek pembayaran"
-        app:layout_constraintTop_toBottomOf="@+id/etRegis" />
+        android:background="@drawable/round_button"
+        android:text="@string/cek_pembayaran"
+        app:layout_constraintTop_toBottomOf="@+id/registrasi" />
 
     <TextView
         android:id="@+id/tvRegis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="registrasi"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/btnCek" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCek"
+        tools:text="registrasi" />
 
     <Button
         android:id="@+id/btnDownlaod"
         android:layout_width="match_parent"
-        android:text="Download"
         android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:text="@string/download_no_registrasi"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/tvRegis" />
 
