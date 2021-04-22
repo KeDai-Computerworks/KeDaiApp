@@ -14,9 +14,8 @@ import com.bumptech.glide.Glide
 class RvAdapterDataBlog(private val blogList: ArrayList<DataResult>) :
     RecyclerView.Adapter<RvAdapterDataBlog.BlogViewHolder>() {
 
-    class BlogViewHolder(val binding: ItemBlogBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class BlogViewHolder(val binding: ItemBlogBinding) : RecyclerView.ViewHolder(binding.root) {
         private val sb: StringBuilder = StringBuilder()
-
         fun bind(dataResult: DataResult) {
             binding.tvTitleBlog.text = dataResult.title
             binding.tvCategoryBlog.text = dataResult.category
@@ -47,7 +46,6 @@ class RvAdapterDataBlog(private val blogList: ArrayList<DataResult>) :
 
     override fun onBindViewHolder(holder: BlogViewHolder, position: Int) {
         blogList[position].let { holder.bind(it) }
-
     }
 
     override fun getItemCount(): Int {

@@ -90,7 +90,6 @@ class CheckPaidActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
             })
     }
 

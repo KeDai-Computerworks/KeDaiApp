@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 class RvAdapterDataEbook(private val ebookList: ArrayList<DataResult>) :
     RecyclerView.Adapter<RvAdapterDataEbook.EbookViewHolder>() {
 
-    class EbookViewHolder(val binding: ItemEbookBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class EbookViewHolder(val binding: ItemEbookBinding) : RecyclerView.ViewHolder(binding.root) {
         private val sb: StringBuilder = StringBuilder()
 
         fun bind(dataResult: DataResult) {
@@ -34,7 +34,6 @@ class RvAdapterDataEbook(private val ebookList: ArrayList<DataResult>) :
                 val intent = Intent(itemView.context, PdfReaderActivity::class.java)
                 intent.putExtra("path", dataResult.path)
                 itemView.context.startActivity(intent)
-
             }
         }
     }

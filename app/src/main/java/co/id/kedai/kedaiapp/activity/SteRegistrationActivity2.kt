@@ -2,7 +2,6 @@ package co.id.kedai.kedaiapp.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import co.id.kedai.kedaiapp.databinding.ActivitySteRegistration2Binding
@@ -30,7 +29,6 @@ class SteRegistrationActivity2 : AppCompatActivity() {
         val golonganDarah = intent.getStringExtra("golonganDarah")
 
         binding.btnlanjut.setOnClickListener {
-
             if (binding.inputEmail.text.toString().isEmpty()
                 || binding.inputTelepon.text.toString().isEmpty()
             ) Toast.makeText(this, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show()
@@ -56,7 +54,6 @@ class SteRegistrationActivity2 : AppCompatActivity() {
                     intent.putExtra("email", binding.inputEmail.text.toString())
                     startActivity(intent)
                     finish()
-
                 }
             }
         }
@@ -65,12 +62,10 @@ class SteRegistrationActivity2 : AppCompatActivity() {
     private fun validateEmail(email: String): Boolean {
         val pattern: Pattern = Pattern.compile(emailPattern)
         val matcher: Matcher = pattern.matcher(email)
-
         return matcher.matches()
     }
 
     override fun onSupportNavigateUp(): Boolean {
-
         onBackPressed()
         return true
     }

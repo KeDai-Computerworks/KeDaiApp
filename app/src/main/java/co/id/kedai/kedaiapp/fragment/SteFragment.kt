@@ -11,7 +11,6 @@ import co.id.kedai.kedaiapp.activity.SteRegistrationActivity
 import co.id.kedai.kedaiapp.databinding.FragmentSteBinding
 
 class SteFragment : Fragment() {
-
     private var _binding: FragmentSteBinding? = null
     private val binding get() = _binding!!
 
@@ -26,7 +25,6 @@ class SteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.btnDaftar.setOnClickListener {
             startActivity(Intent(activity, SteRegistrationActivity::class.java))
         }

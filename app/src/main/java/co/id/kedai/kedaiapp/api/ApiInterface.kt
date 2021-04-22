@@ -10,7 +10,6 @@ import retrofit2.http.POST
 
 
 interface ApiInterface {
-
     @GET("/api/ebooks")
     fun getDataEbook(@Query("page") page: Int):
             Call<DataResponse>
@@ -19,8 +18,7 @@ interface ApiInterface {
     fun getDataAllBlog(
         @Path("category") category: String,
         @Query("page") page: Int
-    ):
-            Call<DataResponse>
+    ): Call<DataResponse>
 
     @GET("/api/events")
     fun getDataEvent(@Query("page") page: Int):

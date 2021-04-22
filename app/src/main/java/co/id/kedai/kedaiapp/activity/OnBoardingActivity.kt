@@ -19,7 +19,6 @@ import co.id.kedai.kedaiapp.databinding.ActivityOnBoardingBinding
 import co.id.kedai.kedaiapp.model.DataOnBoarding
 
 class OnBoardingActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityOnBoardingBinding
 
     private val adapterOnBoarding = AdapterOnBoarding(
@@ -86,7 +85,6 @@ class OnBoardingActivity : AppCompatActivity() {
         }
 
         binding.tvSkip.setOnClickListener {
-
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Skip")
             builder.setMessage("Lewati pengenalan ?")
@@ -96,12 +94,8 @@ class OnBoardingActivity : AppCompatActivity() {
                 dataSave()
                 finish()
             }
-
-            builder.setNegativeButton("Batal") { _, _ ->
-
-            }
+            builder.setNegativeButton("Batal") { _, _ -> }
             builder.show()
-
         }
     }
 

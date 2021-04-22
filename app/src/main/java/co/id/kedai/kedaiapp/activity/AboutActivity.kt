@@ -47,7 +47,6 @@ class AboutActivity : AppCompatActivity() {
                 "http://www.youtube.com/channel/UCp0sX1OsrnxKYjYjVQuvA4w"
             )
         }
-
     }
 
     private fun openSocial(str: String, str2: String, profileUrl: String) {

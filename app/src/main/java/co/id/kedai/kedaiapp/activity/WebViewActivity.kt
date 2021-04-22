@@ -38,7 +38,6 @@ class WebViewActivity : AppCompatActivity() {
 
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.webViewClient = WebViewClient()
-
         binding.webView.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(webView: WebView, i: Int) {
                 if (i == 100) {
@@ -46,7 +45,6 @@ class WebViewActivity : AppCompatActivity() {
                 }
             }
         }
-
         binding.webView.loadUrl(sb.toString())
     }
 

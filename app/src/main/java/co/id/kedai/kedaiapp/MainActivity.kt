@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.toAbout -> startActivity(Intent(this, AboutActivity::class.java))
         }
-
         return super.onOptionsItemSelected(item)
     }
 }

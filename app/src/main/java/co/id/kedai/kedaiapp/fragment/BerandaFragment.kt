@@ -24,7 +24,6 @@ class BerandaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val adapter = ViewPagerAdapter(activity!!.supportFragmentManager, activity!!.lifecycle)
 
         binding.viewPager.adapter = adapter

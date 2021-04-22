@@ -19,12 +19,24 @@
         android:theme="@style/Theme.KeDaiApp"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup">
-        <activity android:name=".activity.AboutActivity"></activity>
-        <activity android:name=".activity.CheckPaidActivity" />
-        <activity android:name=".activity.RegistrationSuccessActivity" />
-        <activity android:name=".activity.SteRegistrationActivity3" />
-        <activity android:name=".activity.SteRegistrationActivity2" />
-        <activity android:name=".activity.SteRegistrationActivity" />
+        <activity
+            android:name=".activity.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CheckPaidActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RegistrationSuccessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SteRegistrationActivity3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SteRegistrationActivity2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SteRegistrationActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.OnBoardingActivity"
             android:screenOrientation="portrait" />

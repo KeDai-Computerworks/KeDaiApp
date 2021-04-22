@@ -69,7 +69,6 @@ class SteRegistrationActivity : AppCompatActivity() {
                 binding.inputKelamin.text.toString() == "" -> binding.kelamin.error = " "
                 binding.inputGolDar.text.toString() == "" -> binding.golDar.error = " "
                 else -> {
-
                     val intent = Intent(this, SteRegistrationActivity2::class.java)
                     intent.putExtra("namaLengkap", binding.inputNama.text.toString())
                     intent.putExtra("tempatLahir", binding.inputTempatLahir.text.toString())
@@ -79,7 +78,6 @@ class SteRegistrationActivity : AppCompatActivity() {
                     intent.putExtra("golonganDarah", binding.inputGolDar.text.toString())
                     startActivity(intent)
                     finish()
-
                 }
             }
         }
@@ -92,7 +90,6 @@ class SteRegistrationActivity : AppCompatActivity() {
 
     @SuppressLint("SimpleDateFormat")
     private fun setDateTimeField() {
-
         val newCalendar = Calendar.getInstance()
         datePickerDialog = DatePickerDialog(
             this,
@@ -107,9 +104,7 @@ class SteRegistrationActivity : AppCompatActivity() {
             newCalendar[Calendar.DAY_OF_MONTH]
         )
         datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
-
     }
-
 }
 
 

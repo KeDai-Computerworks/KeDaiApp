@@ -12,7 +12,6 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     override fun getItemCount(): Int = 6
 
     override fun createFragment(position: Int): Fragment {
-
         return when (position) {
             0 -> BlogFragment("all")
             1 -> BlogFragment("program")

@@ -17,7 +17,6 @@ import com.krishna.fileloader.request.FileLoadRequest
 import java.io.File
 
 class PdfReaderActivity : AppCompatActivity(), OnLoadCompleteListener, OnPageErrorListener {
-
     private val sb: StringBuilder = StringBuilder()
     private lateinit var binding: ActivityPdfReaderBinding
 
@@ -56,24 +55,20 @@ class PdfReaderActivity : AppCompatActivity(), OnLoadCompleteListener, OnPageErr
                 }
 
                 override fun onError(request: FileLoadRequest?, t: Throwable?) {
-
                     Toast.makeText(this@PdfReaderActivity, "Gagal memuat", Toast.LENGTH_SHORT)
                         .show()
                 }
-
             })
     }
 
     override fun loadComplete(nbPages: Int) {
         binding.progresBar.isVisible = false
-
     }
 
     override fun onPageError(page: Int, t: Throwable?) {
         binding.progresBar.isVisible = false
         Toast.makeText(this, "Gagal memuat", Toast.LENGTH_SHORT).show()
     }
-
 }
 
 

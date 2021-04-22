@@ -2,7 +2,6 @@ package co.id.kedai.kedaiapp.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import co.id.kedai.kedaiapp.databinding.ActivityPdfReaderBinding
 import co.id.kedai.kedaiapp.databinding.ActivityRegistrationSuccessBinding
 
 class RegistrationSuccessActivity : AppCompatActivity() {

@@ -18,18 +18,15 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class EventFragment : Fragment() {
-
     private var _binding: FragmentEventBinding? = null
     private val binding get() = _binding!!
     private lateinit var layoutManager: LinearLayoutManager
     private lateinit var adapter: RvAdapterDataEvent
     val dataEvent: ArrayList<DataResult> = ArrayList()
-
     var visibleItemCount = 0
     var totalItemCount = 0
     var pastVisibleItems = 0
     val viewThreshold = 5
-
     var isLoading = true
     var previousTotal = 0
     var pageNumber = 1
@@ -64,14 +61,12 @@ class EventFragment : Fragment() {
             dataEvent.clear()
             showDataEvent()
         }
-
         binding.rvEvent.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 visibleItemCount = layoutManager.childCount
                 totalItemCount = layoutManager.itemCount
                 pastVisibleItems = layoutManager.findFirstCompletelyVisibleItemPosition()
-
                 if (dy > 0) {
                     if (isLoading && totalItemCount > previousTotal) {
                         isLoading = false

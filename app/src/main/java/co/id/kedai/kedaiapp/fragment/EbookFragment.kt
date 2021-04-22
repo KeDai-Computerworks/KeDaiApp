@@ -18,22 +18,18 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class EbookFragment : Fragment() {
-
     private var _binding: FragmentEbookBinding? = null
     private val binding get() = _binding!!
     private lateinit var layoutManager: LinearLayoutManager
     private lateinit var adapter: RvAdapterDataEbook
     val dataEbook: ArrayList<DataResult> = ArrayList()
-
     var visibleItemCount = 0
     var totalItemCount = 0
     var pastVisibleItems = 0
     val viewThreshold = 5
-
     var isLoading = true
     var previousTotal = 0
     var pageNumber = 1
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
