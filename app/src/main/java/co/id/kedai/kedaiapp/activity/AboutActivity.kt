@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import co.id.kedai.kedaiapp.databinding.ActivityAboutBinding
 
@@ -20,6 +21,7 @@ class AboutActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.tvFb.setOnClickListener {
+            Toast.makeText(this, "Membuka Facebook...", Toast.LENGTH_SHORT).show()
             openSocial(
                 "fb://page/1578525432418010",
                 "com.facebook.katana",
@@ -27,6 +29,7 @@ class AboutActivity : AppCompatActivity() {
             )
         }
         binding.tvIg.setOnClickListener {
+            Toast.makeText(this, "Membuka Instagram...", Toast.LENGTH_SHORT).show()
             openSocial(
                 "http://instagram.com/kdcomputerworks",
                 "com.instagram.android",
@@ -34,6 +37,7 @@ class AboutActivity : AppCompatActivity() {
             )
         }
         binding.tvTw.setOnClickListener {
+            Toast.makeText(this, "Membuka Twitter...", Toast.LENGTH_SHORT).show()
             openSocial(
                 "twitter://user?user_id=328869012",
                 "com.twitter.android",
@@ -41,6 +45,7 @@ class AboutActivity : AppCompatActivity() {
             )
         }
         binding.tvYt.setOnClickListener {
+            Toast.makeText(this, "Membuka Youtube...", Toast.LENGTH_SHORT).show()
             openSocial(
                 "http://www.youtube.com/channel/UCp0sX1OsrnxKYjYjVQuvA4w",
                 "com.google.android.youtube",
