@@ -15,7 +15,7 @@
         android:layout_marginBottom="25dp"
         android:text="@string/skip"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -41,7 +41,6 @@
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btnNext" />
-
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/sliderView"

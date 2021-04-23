@@ -58,7 +58,7 @@
             android:id="@+id/tvTanggalDiperbaharui"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="mm yyyy"
+            android:text="@string/april_2021"
             android:textColor="@color/black"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDiperbaharui" />
