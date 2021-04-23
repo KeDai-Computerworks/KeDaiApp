@@ -56,4 +56,10 @@
     <string name="masukkan_data_diri">Masukkan Data Diri Anda</string>
     <string name="masukkan_kontak">Masukkan Kontak Anda</string>
     <string name="masukkan_asal_kampus_anda">Masukkan Asal Kampus Anda</string>
+    <string name="pendaftaran_berhasil">Pendaftaran Berhasil</string>
+    <string name="registrasi_ulang">Lakukan konfirmasi registrasi dengan memperlihatkan \n no.registrasi di stand KeDai Computerworks,\n Sekretariat KeDai Computerworks.</string>
+    <string name="harap_simpan_screenshot_nomor_registrasi_anda">*Harap simpan / screenshot nomor registrasi anda</string>
+    <string name="biaya_registrasi_sebesar_rp_85_000">Biaya registrasi sebesar Rp. 85.000</string>
+    <string name="ok">OK</string>
+
 </resources>

@@ -4,15 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:paddingHorizontal="32dp"
     tools:context=".activity.RegistrationSuccessActivity">
 
     <TextView
-        android:gravity="center"
+        android:id="@+id/tvBerhasil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:text="@string/pendaftaran_berhasil"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgBerhasil"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/ic_berhasil"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBerhasil" />
+
+    <TextView
         android:id="@+id/idR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/round_button"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="5dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBerhasil"
+        tools:text="No Registrasi" />
+
+    <TextView
+        android:id="@+id/tvKet2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="35sp"
+        android:text="@string/harap_simpan_screenshot_nomor_registrasi_anda"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/idR" />
+
+    <TextView
+        android:id="@+id/tvKet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/registrasi_ulang"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tvKet2" />
+
+    <TextView
+        android:id="@+id/tvBiaya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button_white"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="5dp"
+        android:text="@string/biaya_registrasi_sebesar_rp_85_000"
+        android:textAlignment="center"
+        android:textColor="@color/utama"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnOk"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvKet" />
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ok"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="id registraasi" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBiaya" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
