@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import co.id.kedai.kedaiapp.activity.CheckPaidActivity
-import co.id.kedai.kedaiapp.activity.SteRegistrationActivity
+import co.id.kedai.kedaiapp.activity.SteMenuActivity
 import co.id.kedai.kedaiapp.databinding.FragmentSteBinding
 
 class SteFragment : Fragment() {
@@ -26,10 +25,7 @@ class SteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnDaftar.setOnClickListener {
-            startActivity(Intent(activity, SteRegistrationActivity::class.java))
-        }
-        binding.btnCekPaid.setOnClickListener {
-            startActivity(Intent(activity, CheckPaidActivity::class.java))
+            startActivity(Intent(activity, SteMenuActivity::class.java))
         }
     }
 

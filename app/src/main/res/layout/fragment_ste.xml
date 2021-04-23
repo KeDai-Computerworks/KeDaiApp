@@ -4,41 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".fragment.SteFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg"
-        android:paddingHorizontal="32dp">
+        android:layout_gravity="top"
+        android:background="@color/utama2">
+
+        <ImageView
+            android:id="@+id/imgLogoKdcw"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/logo_kdcw"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.iambedant.text.OutlineTextView
+            android:id="@+id/tvOpenRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/open_recruitment"
+            android:textColor="@color/utama"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="28dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgLogoKdcw"
+            app:outlineColor="@color/white"
+            app:outlineWidth="0.1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/let_s_join_with_us"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvOpenRec"/>
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="@string/line"
+            android:textColor="@color/white"
+            android:textSize="80sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvOpenRec" />
+
+        <ImageView
+            android:contentDescription="@string/todo"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/logo_ste_coi"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/line"
+            app:layout_constraintTop_toTopOf="@+id/line"
+            app:layout_constraintBottom_toBottomOf="@+id/line"/>
+
+        <ImageView
+            android:contentDescription="@string/todo"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/logo_ste17"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/line"
+            app:layout_constraintTop_toTopOf="@+id/line"
+            app:layout_constraintBottom_toBottomOf="@+id/line"/>
 
         <Button
             android:id="@+id/btnDaftar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/round_button"
+            android:paddingHorizontal="32dp"
             android:text="@string/daftar_sekarang"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnCekPaid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/round_button"
-            android:text="@string/cek_pembayaran"
-            app:layout_constraintTop_toBottomOf="@+id/btnDaftar" />
-
-        <Button
-            android:id="@+id/btnJadwalKegiatan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/round_button"
-            android:text="@string/jadwal_kegiatan"
-            app:layout_constraintTop_toBottomOf="@+id/btnCekPaid" />
+            app:layout_constraintTop_toBottomOf="@+id/line"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

@@ -20,6 +20,12 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".activity.SteJadwalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SteMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.AboutActivity"
             android:screenOrientation="portrait" />
         <activity

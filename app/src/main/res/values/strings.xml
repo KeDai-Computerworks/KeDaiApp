@@ -50,5 +50,10 @@
     <string name="download_no_registrasi">Download No. Registrasi</string>
     <string name="nomor_registrasi">Nomor Registrasi</string>
     <string name="april_2021">April 2021</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading…</string>
+    <string name="open_recruitment">OPEN RECRUITMENT</string>
+    <string name="let_s_join_with_us">Let\'s Join With Us</string>
+    <string name="masukkan_data_diri">Masukkan Data Diri Anda</string>
+    <string name="masukkan_kontak">Masukkan Kontak Anda</string>
+    <string name="masukkan_asal_kampus_anda">Masukkan Asal Kampus Anda</string>
 </resources>

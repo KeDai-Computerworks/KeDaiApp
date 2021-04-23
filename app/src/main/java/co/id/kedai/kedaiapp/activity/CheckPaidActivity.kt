@@ -82,7 +82,6 @@ class CheckPaidActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         binding.btnDownlaod.isVisible = false
-
                     }
                 }
 

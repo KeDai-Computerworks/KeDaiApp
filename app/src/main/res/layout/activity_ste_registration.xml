@@ -4,127 +4,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="@color/utama2"
     android:paddingHorizontal="32dp"
     tools:context=".activity.SteRegistrationActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nama"
+    <com.iambedant.text.OutlineTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/masukkan_data_diri"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/parentForm"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:outlineColor="@color/utama"
+        app:outlineWidth="0.1" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:hint="@string/nama_lengkap"
-        app:errorEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputNama"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1" />
+            android:hint="@string/nama_lengkap"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tempatLahir"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/tempat_lahir"
-        app:errorEnabled="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/tglLahir"
-        app:layout_constraintTop_toBottomOf="@+id/nama">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputTempatLahir"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tempatLahir"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/tempat_lahir"
+            app:errorEnabled="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tglLahir"
+            app:layout_constraintTop_toBottomOf="@+id/nama">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputTempatLahir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tglLahir"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:hint="@string/tanggal_lahir"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toBottomOf="@+id/tempatLahir"
+            app:layout_constraintLeft_toRightOf="@id/tempatLahir"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tempatLahir">
+
+            <AutoCompleteTextView
+                android:id="@+id/inputTglLahir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                tools:ignore="LabelFor" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/alamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/alamat"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/tempatLahir">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tglLahir"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:hint="@string/tanggal_lahir"
-        app:errorEnabled="true"
-        app:layout_constraintLeft_toRightOf="@id/tempatLahir"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nama">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
 
-        <AutoCompleteTextView
-            android:id="@+id/inputTglLahir"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/kelamin"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none"
-            tools:ignore="LabelFor" />
+            android:hint="@string/jenis_kelamin"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/alamat">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <AutoCompleteTextView
+                android:id="@+id/inputKelamin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                tools:ignore="LabelFor" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/alamat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/alamat"
-        app:errorEnabled="true"
-        app:layout_constraintTop_toBottomOf="@+id/tempatLahir">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputAlamat"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/golDar"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1" />
+            android:hint="@string/golongan_darah"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/kelamin">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <AutoCompleteTextView
+                android:id="@+id/inputGolDar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                tools:ignore="LabelFor" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/kelamin"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/jenis_kelamin"
-        app:errorEnabled="true"
-        app:layout_constraintTop_toBottomOf="@+id/alamat">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <AutoCompleteTextView
-            android:id="@+id/inputKelamin"
+        <Button
+            android:id="@+id/btnlanjut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none"
-            tools:ignore="LabelFor" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/golDar"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/golongan_darah"
-        app:errorEnabled="true"
-        app:layout_constraintTop_toBottomOf="@+id/kelamin">
-
-        <AutoCompleteTextView
-            android:id="@+id/inputGolDar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"
-            tools:ignore="LabelFor" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/btnlanjut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/round_button"
-        android:text="@string/lanjut"
-        app:layout_constraintTop_toBottomOf="@+id/golDar" />
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/round_button"
+            android:text="@string/lanjut"
+            app:layout_constraintTop_toBottomOf="@+id/golDar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
