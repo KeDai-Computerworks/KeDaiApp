@@ -51,6 +51,8 @@ class PdfReaderActivity : AppCompatActivity(), OnLoadCompleteListener, OnPageErr
                             .load()
                     } catch (e: Exception) {
                         e.printStackTrace()
+                        Toast.makeText(this@PdfReaderActivity, "Gagal memuat", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
 
@@ -63,6 +65,7 @@ class PdfReaderActivity : AppCompatActivity(), OnLoadCompleteListener, OnPageErr
 
     override fun loadComplete(nbPages: Int) {
         binding.progresBar.isVisible = false
+        binding.tvLoading.isVisible = false
     }
 
     override fun onPageError(page: Int, t: Throwable?) {

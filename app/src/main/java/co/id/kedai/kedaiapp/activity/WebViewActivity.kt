@@ -42,6 +42,7 @@ class WebViewActivity : AppCompatActivity() {
             override fun onProgressChanged(webView: WebView, i: Int) {
                 if (i == 100) {
                     binding.progresBar.isVisible = false
+                    binding.tvLoading.isVisible = false
                 }
             }
         }
