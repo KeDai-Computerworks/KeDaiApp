@@ -81,6 +81,8 @@ class CheckPaidActivity : AppCompatActivity() {
                             response.body()?.message,
                             Toast.LENGTH_SHORT
                         ).show()
+                        binding.btnDownlaod.isVisible = false
+
                     }
                 }
 
@@ -92,6 +94,7 @@ class CheckPaidActivity : AppCompatActivity() {
                         t.message,
                         Toast.LENGTH_SHORT
                     ).show()
+                    binding.btnDownlaod.isVisible = false
                 }
             })
     }
