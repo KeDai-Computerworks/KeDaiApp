@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import co.id.kedai.kedaiapp.R
 import co.id.kedai.kedaiapp.activity.SteMenuActivity
 import co.id.kedai.kedaiapp.databinding.FragmentSteBinding
 
@@ -24,6 +26,11 @@ class SteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.imgLogoSte17.animation = AnimationUtils.loadAnimation(activity, R.anim.load)
+        binding.imgLogoSteCoi.animation = AnimationUtils.loadAnimation(activity, R.anim.load)
+        binding.btnDaftar.animation = AnimationUtils.loadAnimation(activity, R.anim.load_button)
+
         binding.btnDaftar.setOnClickListener {
             startActivity(Intent(activity, SteMenuActivity::class.java))
         }

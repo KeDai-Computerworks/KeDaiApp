@@ -8,11 +8,11 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "co.id.kedai.kedaiapp"
+        applicationId "id.or.kedai.kedaiapp"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 14
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -39,7 +39,7 @@
             android:id="@+id/tvCodeVersiRilis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="x.xx"
+            android:text="2.00"
             android:textColor="@color/black"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvVersiRilis" />
