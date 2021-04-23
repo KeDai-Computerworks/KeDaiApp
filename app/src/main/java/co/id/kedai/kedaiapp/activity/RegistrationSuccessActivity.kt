@@ -13,7 +13,6 @@ class RegistrationSuccessActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         supportActionBar?.title = "Pendaftaran Sukses"
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val idRegistrasi = intent.getStringExtra("idR")
         binding.idR.text = idRegistrasi.toString()
