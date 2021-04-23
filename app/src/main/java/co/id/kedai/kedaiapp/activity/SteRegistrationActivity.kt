@@ -91,6 +91,7 @@ class SteRegistrationActivity : AppCompatActivity() {
     @SuppressLint("SimpleDateFormat")
     private fun setDateTimeField() {
         val newCalendar = Calendar.getInstance()
+        newCalendar.set(2002,0,1)
         datePickerDialog = DatePickerDialog(
             this,
             { _, year, monthOfYear, dayOfMonth ->
