@@ -40,13 +40,8 @@ class SteRegistrationActivity : AppCompatActivity() {
         }
 
         binding.btnlanjut.setOnClickListener {
-
             val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
             val awal = SimpleDateFormat("dd MMMM yyyy")
-            val date: Date? = awal.parse(binding.inputTglLahir.text.toString())
-            val tanggalConversi: String = simpleDateFormat.format(date!!)
-
-            var kelamin: String? = null
 
             if (binding.inputNama.text.toString().isEmpty()
                 || binding.inputTempatLahir.text.toString().isEmpty()
@@ -57,11 +52,6 @@ class SteRegistrationActivity : AppCompatActivity() {
             ) Toast.makeText(this, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show()
 
             when {
-                binding.inputKelamin.text.toString() == "Laki-laki" -> kelamin = "male"
-                binding.inputKelamin.text.toString() == "Perempuan" -> kelamin = "female"
-            }
-
-            when {
                 binding.inputNama.text.toString() == "" -> binding.nama.error = " "
                 binding.inputTempatLahir.text.toString() == "" -> binding.tempatLahir.error = " "
                 binding.inputTglLahir.text.toString() == "" -> binding.tglLahir.error = " "
@@ -69,6 +59,13 @@ class SteRegistrationActivity : AppCompatActivity() {
                 binding.inputKelamin.text.toString() == "" -> binding.kelamin.error = " "
                 binding.inputGolDar.text.toString() == "" -> binding.golDar.error = " "
                 else -> {
+                    val date: Date? = awal.parse(binding.inputTglLahir.text.toString())
+                    val tanggalConversi: String = simpleDateFormat.format(date!!)
+                    var kelamin: String? = null
+                    when {
+                        binding.inputKelamin.text.toString() == "Laki-laki" -> kelamin = "male"
+                        binding.inputKelamin.text.toString() == "Perempuan" -> kelamin = "female"
+                    }
                     val intent = Intent(this, SteRegistrationActivity2::class.java)
                     intent.putExtra("namaLengkap", binding.inputNama.text.toString())
                     intent.putExtra("tempatLahir", binding.inputTempatLahir.text.toString())
@@ -91,7 +88,7 @@ class SteRegistrationActivity : AppCompatActivity() {
     @SuppressLint("SimpleDateFormat")
     private fun setDateTimeField() {
         val newCalendar = Calendar.getInstance()
-        newCalendar.set(2002,0,1)
+        newCalendar.set(2002, 0, 1)
         datePickerDialog = DatePickerDialog(
             this,
             { _, year, monthOfYear, dayOfMonth ->
