@@ -51,6 +51,14 @@ class SteRegistrationActivity : AppCompatActivity() {
                 || binding.inputGolDar.text.toString().isEmpty()
             ) Toast.makeText(this, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show()
 
+            if (binding.inputNama.text.toString().isNotEmpty()) binding.nama.error = null
+            if (binding.inputTempatLahir.text.toString().isNotEmpty()) binding.tempatLahir.error =
+                null
+            if (binding.inputAlamat.text.toString().isNotEmpty()) binding.alamat.error = null
+            if (binding.inputTglLahir.text.toString().isNotEmpty()) binding.tglLahir.error = null
+            if (binding.inputKelamin.text.toString().isNotEmpty()) binding.kelamin.error = null
+            if (binding.inputGolDar.text.toString().isNotEmpty()) binding.golDar.error = null
+
             when {
                 binding.inputNama.text.toString() == "" -> binding.nama.error = " "
                 binding.inputTempatLahir.text.toString() == "" -> binding.tempatLahir.error = " "

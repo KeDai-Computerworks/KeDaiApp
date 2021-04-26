@@ -34,6 +34,7 @@ class SteRegistrationActivity2 : AppCompatActivity() {
             ) Toast.makeText(this, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show()
 
             if (binding.inputTelepon.text.toString().length >= 11) binding.telepon.error = null
+            if (binding.inputEmail.text.toString().isNotEmpty()) binding.email.error = null
 
             when {
                 binding.inputTelepon.text.toString() == "" -> binding.telepon.error = " "

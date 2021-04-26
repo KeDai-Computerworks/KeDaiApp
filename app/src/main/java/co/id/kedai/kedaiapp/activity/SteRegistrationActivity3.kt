@@ -70,6 +70,9 @@ class SteRegistrationActivity3 : AppCompatActivity() {
                 || binding.inputAlasan.text.toString().isEmpty()
             ) Toast.makeText(this, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show()
 
+            if (binding.inputKampus.text.toString().isNotEmpty()) binding.kampus.error = null
+            if (binding.inputAlasan.text.toString().length >= 15) binding.alasan.error = null
+
             when {
                 binding.inputKampus.text.toString() == "" -> binding.kampus.error = " "
                 binding.inputAlasan.text.toString() == "" -> binding.alasan.error = " "
