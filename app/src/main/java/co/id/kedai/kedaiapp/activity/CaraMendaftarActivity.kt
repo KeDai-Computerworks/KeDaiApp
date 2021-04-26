@@ -31,7 +31,7 @@ class CaraMendaftarActivity : AppCompatActivity() {
             ),
             DataCaraMendaftar("lalu cek pembayaran", R.drawable.cara1),
             DataCaraMendaftar(
-                "Masukkan no. registrasi yang telah didapatkan, lalu download no registrasi",
+                "Setelah melakukan pembayaran, masukkan no. registrasi yang telah didapatkan, lalu download no registrasi",
                 R.drawable.cara7
             ),
             DataCaraMendaftar("No. registrasi telah didownload", R.drawable.cara8),
