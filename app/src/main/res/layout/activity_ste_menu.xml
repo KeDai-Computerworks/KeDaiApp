@@ -168,7 +168,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
-                android:paddingHorizontal="24dp">
+                android:paddingStart="24dp"
+                android:paddingEnd="18dp">
 
                 <ImageView
                     android:id="@+id/imgjadwal"
@@ -194,18 +195,32 @@
                     app:layout_constraintLeft_toRightOf="@+id/imgjadwal"
                     app:layout_constraintTop_toTopOf="@id/imgjadwal" />
 
-                <TextView
-                    android:id="@+id/tvJadwal"
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
                     android:layout_marginBottom="5dp"
-                    android:text="@string/jadwal_kegiatan"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
+                    android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="@+id/three"
                     app:layout_constraintLeft_toRightOf="@+id/three"
-                    app:layout_constraintTop_toTopOf="@+id/three" />
+                    app:layout_constraintTop_toTopOf="@+id/three">
+
+                    <TextView
+                        android:id="@+id/tvJadwal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jadwal_kegiatan"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCaraMendaftar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dan_cara_mendaftar"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
