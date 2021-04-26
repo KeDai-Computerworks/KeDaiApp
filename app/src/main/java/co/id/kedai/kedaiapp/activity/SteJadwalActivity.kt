@@ -1,5 +1,6 @@
 package co.id.kedai.kedaiapp.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import co.id.kedai.kedaiapp.databinding.ActivitySteJadwalBinding
@@ -14,6 +15,10 @@ class SteJadwalActivity : AppCompatActivity() {
         setContentView(view)
         supportActionBar?.title = "Jadwal STE XVII"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.btnAlurPendaftaran.setOnClickListener {
+            startActivity(Intent(this, CaraMendaftarActivity::class.java))
+        }
 
     }
 

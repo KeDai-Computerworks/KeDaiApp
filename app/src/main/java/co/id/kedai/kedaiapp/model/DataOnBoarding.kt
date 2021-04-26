@@ -5,3 +5,8 @@ data class DataOnBoarding(
     val deskripsi: String,
     val gambar: Int
 )
+
+data class DataCaraMendaftar(
+    val deskripsi: String,
+    val gambar: Int
+)
