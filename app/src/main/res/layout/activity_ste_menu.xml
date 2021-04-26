@@ -190,7 +190,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="5dp"
                     android:contentDescription="@string/todo"
-                    android:src="@drawable/two"
+                    android:src="@drawable/three"
                     app:layout_constraintBottom_toBottomOf="@+id/imgjadwal"
                     app:layout_constraintLeft_toRightOf="@+id/imgjadwal"
                     app:layout_constraintTop_toTopOf="@id/imgjadwal" />

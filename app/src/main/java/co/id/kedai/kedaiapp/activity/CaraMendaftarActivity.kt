@@ -18,7 +18,7 @@ class CaraMendaftarActivity : AppCompatActivity() {
 
     private val adapterCaraMendaftar = AdapterCaraMendaftar(
         listOf(
-            DataCaraMendaftar("Pilih Daftar", R.drawable.cara1),
+            DataCaraMendaftar("Pilih Daftar", R.drawable.cara1_6),
             DataCaraMendaftar("Isi data diri, lalu lanjut", R.drawable.cara2),
             DataCaraMendaftar("Isi no. telepon dan email, lalu lanjut", R.drawable.cara3),
             DataCaraMendaftar(
@@ -26,10 +26,10 @@ class CaraMendaftarActivity : AppCompatActivity() {
                 R.drawable.cara4
             ),
             DataCaraMendaftar(
-                "Mendapatkan no. registrasi, lalu lanjutkan pembayaran, setelah melakukan membayar konfirmasi ke panitia",
+                "Mendapatkan no. registrasi, lalu lanjutkan pembayaran, setelah melakukan membayar konfirmasi ke panitia STE XVII",
                 R.drawable.cara5
             ),
-            DataCaraMendaftar("lalu cek pembayaran", R.drawable.cara1),
+            DataCaraMendaftar("lalu cek pembayaran", R.drawable.cara1_6),
             DataCaraMendaftar(
                 "Setelah melakukan pembayaran, masukkan no. registrasi yang telah didapatkan, lalu download no registrasi",
                 R.drawable.cara7
