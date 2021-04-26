@@ -23,9 +23,9 @@ class SteMenuActivity : AppCompatActivity() {
             startActivity(Intent(this, CheckPaidActivity::class.java))
         }
 
-//        binding.menuJadwal.setOnClickListener {
-//            startActivity(Intent(this, SteJadwalActivity::class.java))
-//        }
+        binding.menuJadwal.setOnClickListener {
+            startActivity(Intent(this, SteJadwalActivity::class.java))
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

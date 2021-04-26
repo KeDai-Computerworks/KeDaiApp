@@ -6,4 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".activity.SteJadwalActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentImgJadwal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgJadwalKegiatan"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:contentDescription="@string/todo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_jadwalkegiatan"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnAlurPendaftaran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="65dp"
+        android:background="@drawable/round_button"
+        android:text="@string/alur_pendaftaran"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/parentImgJadwal" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

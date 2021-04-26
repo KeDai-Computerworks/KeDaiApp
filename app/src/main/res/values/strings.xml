@@ -62,5 +62,6 @@
     <string name="biaya_registrasi_sebesar_rp_85_000">Biaya registrasi sebesar Rp. 85.000</string>
     <string name="ok">OK</string>
     <string name="version">2.1</string>
+    <string name="alur_pendaftaran">Lihat Alur Pendaftaran</string>
 
 </resources>
